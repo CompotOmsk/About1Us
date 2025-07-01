@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компот - Творческое пространство</title>
+    <meta name="description" content="Творческое пространство Компот для детей и взрослых - языки, искусство, музыка и путешествия">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+        --primary-color: #E09F12;
+        --secondary-color: #DA7502;
+        --background-color: #AAAA37;
+        --text-color: #FFFFFF;
+        --dark-text: #000000;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: var(--background-color);
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Единое меню для всех страниц */
+    .menu {
+        background-color: var(--primary-color);
+        height: 80px;
+        border-radius: 20px;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu__logo {
+        height: 60px;
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .menu__logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .menu__list {
+        display: flex;
+        gap: 30px;
+        list-style-type: none;
+    }
+    
+    .menu__link {
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .menu__link:hover {
+        color: var(--dark-text);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .menu__link--current {
+        background-color: var(--secondary-color);
+        color: white;
+    }
+    
+    .menu__link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--text-color);
+        transition: width 0.3s ease;
+    }
+    
+    .menu__link:hover::after {
+        width: 100%;
+    }
+    
+    .content-block {
+        background-color: var(--primary-color);
+        max-width: 1295px;
+        width: 100%;
+        margin: 35px auto;
+        border-radius: 31px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .menu__logo {
+        height: 60px;
+        width: auto;
+    }
+    
+    .menu__list {
+        display: flex;
+        gap: 30px;
+        list-style-type: none;
+    }
+    
+    .menu__link {
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+    
+    .menu__link:hover {
+        color: var(--dark-text);
+    }
+    
+    .page-header {
+        text-align: center;
+        font-size: 2rem;
+        margin: 40px 0;
+        font-weight: 600;
+    }
+    
+    .content-section {
+        margin: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .text-content {
+        flex: 1;
+        min-width: 300px;
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+    
+    .image-gallery {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .gallery-image {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-image:hover {
+        transform: scale(1.02);
+    }
+    
+    .achievements {
+        background-color: var(--secondary-color);
+        border-radius: 20px;
+        padding: 40px;
+        margin: 60px 0;
+    }
+    
+    .achievements-list {
+        font-size: 1.2rem;
+        line-height: 2;
+        list-style-type: none;
+    }
+    
+    .achievements-list li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 30px;
+    }
+    
+    .achievements-list li::before {
+        content: "•";
+        color: var(--primary-color);
+        font-size: 2rem;
+        position: absolute;
+        left: 0;
+        top: -5px;
+    }
+    
+    .full-width-image {
+        width: 100%;
+        max-height: 600px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin: 40px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+        .menu {
+            flex-direction: column;
+            height: auto;
+            padding: 20px;
+        }
+        
+        .menu__list {
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .page-header {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .text-content, .achievements-list {
+            font-size: 1rem;
+        }
+        
+        .achievements {
+            padding: 20px;
+        }
+    }
+
+     .footer {
+        background-color: var(--light-gray);
+        border-radius: 31px;
+        padding: 40px;
+        margin: 40px auto;
+        max-width: 947px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    
+    .footer__nav {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .footer__title {
+        font-size: 1.2rem;
+        color: var(--dark-text);
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .footer__links {
+        list-style-type: none;
+    }
+    
+    .footer__link {
+        display: block;
+        color: var(--dark-text);
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+    }
+    
+    .footer__link:hover {
+        color: var(--secondary-color);
+    }
+    
+    .footer__info {
+        flex: 2;
+        min-width: 300px;
+        color: var(--dark-text);
+        font-size: 0.9rem;
+    }
+    
+    .footer__logo {
+        text-align: center;
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .footer__logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+     .credits {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1rem;
+        color: var(--text-color);
+    }
+    
+    .credits img {
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="menu">
+            <a href="/index.html"><img src="/medeo/Rectangle (4) 1.svg" alt="Логотип Компот" class="menu__logo"></a>
+            <ul class="menu__list">
+                <li><a href="/страницы/о_нас.html" class="menu__link">о нас</a></li>
+                <li><a href="/страницы/прадукты.html" class="menu__link">продукт</a></li>
+                <li><a href="/страницы/события.html" class="menu__link">события</a></li>
+            </ul>
+        </nav>
+        
+        <h1 class="page-header">Творческое пространство для детей и взрослых</h1>
+        
+        <section class="content-section">
+            <div class="two-column">
+                <div class="text-content">
+                    <p>Иностранные языки</p>
+                    <p>Репетиторство: начальная школа и подготовка к ОГЭ и ЕГЭ по всем предметам</p>
+                    <p>🎨 АРТ Студия</p>
+                    <p>Творческие Мастер-классы</p>
+                    <p>🎹 Музыкальная Студия</p>
+                    <p>Шахматный клуб «Сибирская шахматная школа»</p>
+                </div>
+                
+                <div class="image-gallery">
+                    <img src="/medeo/afxYe0jsFlhJmZdLaK1zzK7gg7c_B-PtIsrvBBx5TwG96Y_CTyrahwzZXVZ6XnmGAlTv4OZ1A5TzEKO07qE6YETF.jpg" 
+                         alt="Занятия в студии Компот" 
+                         class="gallery-image"
+                         loading="lazy">
+                    <img src="https://sun9-79.userapi.com/s/v1/ig2/xF-MRFZ7eiWyTkR9-dgCSA8uP32rXALmqqCRtC45Scik86k3wy1Z0LnCxVTKB6b2M-TASoz96Kxh4_FCLxKflsbP.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" 
+                         alt="Мастер-класс в Компоте" 
+                         class="gallery-image"
+                         loading="lazy">
+                </div>
+            </div>
+        </section>
+        
+        <section class="achievements">
+            <h2 class="section-title">Наши достижения за лето 2024</h2>
+            <ul class="achievements-list">
+                <li>Посетили более 100 выставок и экскурсий</li>
+                <li>Побывали в 11 городах России</li>
+                <li>Провели 4 лагерные смены в санаториях и базах отдыха</li>
+                <li>Оздоровили и развлекли более 80 человек</li>
+                <li>Побывали во всех районах Омской области с Омскпригород</li>
+                <li>Приобрели 10 новых друзей</li>
+                <li>Научились ездить верхом, танцевать, плавать, управлять дроном</li>
+                <li>Исполнили мечты 10 ребят</li>
+                <li>Узнали много нового и интересного</li>
+            </ul>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 1.3rem; font-weight: 600;">
+                Компот - самая лучшая и творческая студия!
+            </p>
+        </section>
+
+                    <footer class="footer">
+                <nav class="footer__nav">
+                    <h5 class="footer__title">Меню</h5>
+                    <ul class="footer__links">
+                        <li><a href="/" class="footer__link">Главная</a></li>
+                        <li><a href="/страницы/о_нас.html" class="footer__link">О нас</a></li>
+                        <li><a href="/страницы/прадукты.html" class="footer__link">Продукт</a></li>
+                        <li><a href="/страницы/события.html" class="footer__link">События</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="footer__info">
+                    <p>Иностранные языки. Репетиторство: начальная школа и подготовка к ОГЭ и ЕГЭ по всем предметам. 🎨 АРТ Студия. Творческие Мастер-классы. 🎹 Музыкальная Студия. Шахматный клуб «Сибирская шахматная школа». Арт-вечеринки. Летний языковой лагерь. Организация путешествий с детьми и взрослыми по России и зарубежом.</p>
+                </div>
+                
+                <div class="footer__logo">
+                    <img src="/Rectangle (4) 1.png" alt="Логотип Компот" loading="lazy">
+                </div>
+            </footer>
+        </main>
+        
+        <div class="credits">
+            <img src="/Rectangle 9.png" alt="Zoro Game" loading="lazy">
+            <p>Website created by Zoro Game</p>
+        </div>
+    </div>
+    
+</body>
+</html>
